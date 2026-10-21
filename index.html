@@ -9,6 +9,31 @@
 @media(max-width:900px){.twocol,.hero{grid-template-columns:1fr}.hero-art{min-height:175px}.hero-copy{min-height:auto}.sticky{position:static}.desktopnav{display:none}.mobilenav{position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:space-around;border-radius:19px 19px 0 0;padding:9px max(6px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left));z-index:20;background:#192137f5;backdrop-filter:blur(18px);border-left:0;border-right:0;border-bottom:0}.mobilenav button{display:flex;flex-direction:column;gap:3px;padding:7px 10px;border-radius:10px;font-size:10px;min-width:53px}.mobilenav .ico{font-size:19px}.shell{padding:18px 17px 110px}.steps{grid-template-columns:1fr}.hero-copy{padding:27px}.card{padding:19px}}
 @media(max-width:510px){.title{letter-spacing:-1.5px}.hero-art{padding:21px}.stats{gap:9px}.stat{padding:15px}.stat .num{font-size:25px}.stat .tag{font-size:10px}.row2{grid-template-columns:1fr}.top{margin-bottom:24px}.private{font-size:10px;padding:8px}.hero-copy .title{font-size:38px}.btn{min-height:44px}.sectionhead{align-items:start}.resume-sheet{padding:23px 19px}.job .jobtop{flex-wrap:wrap}}
 @media print{@page{size:letter;margin:.55in}html,body{background:white!important;color:#111!important}.top,.mobilenav,.footnote,.topbar-actions,.no-print,.intro,.sectionhead,.toast{display:none!important}.shell{max-width:100%!important;padding:0!important;margin:0!important}.view{display:none!important}#resumeView{display:block!important}.twocol{display:block!important}#resumeFormSide{display:none!important}#resumePreviewSide{display:block!important;border:none!important;background:white!important;box-shadow:none!important;padding:0!important}#resumePreviewSide>h3,#resumePreviewSide>.hint,#resumePreviewSide>.actions{display:none!important}.resumescroll{max-height:none!important;overflow:visible!important}.resume-sheet{box-shadow:none!important;border-radius:0!important;min-height:unset!important;padding:0!important;color:#111!important}.resume-sheet h2{font-size:26px}.resume-sheet p,.resume-sheet li{font-size:11.5px}.resume-sheet .itemline{font-size:12px}}
+
+/* NEXTMOVE print fix: prevent viewport-sized invisible overflow from generating a blank page on mobile PDF printing. */
+@media print {
+  html, body {
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  body { margin: 0 !important; padding: 0 !important; }
+  .shell, main, #resumeView, #resumePreviewSide, .resumescroll {
+    min-height: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  #resumeView {
+    animation: none !important;
+    transform: none !important;
+  }
+  .resume-sheet {
+    min-height: 0 !important;
+    height: auto !important;
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+}
 </style>
 </head>
 <body>
